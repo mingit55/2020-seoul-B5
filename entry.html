@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전주한지문화축제</title>
+    <script src='/js/jquery-3.4.1.min.js'></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/commons.js"></script>
+</head>
+<body>
+    <!-- 헤더 영역 -->
+    <input type="checkbox" id="open-aside" hidden>
+    <header>
+        <div class="container h-100 d-between">
+            <div class="align-center">
+                <a href="#">
+                    <img src="/images/Wlogo.svg" title="전주한지문화축제" alt="전주한지문화축제" height="30">
+                </a>
+                <div class="nav ml-4 d-none d-lg-flex">
+                    <div class="nav__item">
+                        <a href="#">전주한지문화축제</a>
+                        <div class="nav__list">
+                            <a href="#">개요/연혁</a>
+                            <a href="#">찾아오시는길</a>
+                        </div>
+                    </div>
+                    <div class="nav__item">
+                        <a href="#">한지상품판매관</a>
+                        <div class="nav__list">
+                            <a href="#">한지업체</a>
+                            <a href="#">온라인스토어</a>
+                        </div>
+                    </div>
+                    <div class="nav__item">
+                        <a href="#">한지공예대전</a>
+                        <div class="nav__list">
+                            <a href="#">출품신청</a>
+                            <a href="#">참가작품</a>
+                        </div>
+                    </div>
+                    <div class="nav__item">
+                        <a href="#">축제공지사항</a>
+                        <div class="nav__list">
+                            <a href="#">알려드립니다</a>
+                            <a href="#">1:1문의</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="auth d-none d-lg-flex">
+                <a href="#">로그인</a>
+                <a href="#">회원가입</a>
+            </div>
+            <label for="open-aside" class="icon text-white d-lg-none">
+                <i class="fa fa-bars"></i>
+            </label>
+        </div>
+    </header>
+    <!-- /헤더 영역 -->
+    <!-- 사이드바 -->
+    <aside>
+        <label for="open-aside" class="aside__background"></label>
+        <div class="aside__content">
+            <div class="auth auth--aside">
+                <a href="#">로그인</a>
+                <a href="#">회원가입</a>
+            </div> 
+            <div class="nav nav--aside">
+                <div class="nav__item">
+                    <a href="#">전주한지문화축제</a>
+                    <div class="nav__list">
+                        <a href="#">개요/연혁</a>
+                        <a href="#">찾아오시는길</a>
+                    </div>
+                </div>
+                <div class="nav__item">
+                    <a href="#">한지상품판매관</a>
+                    <div class="nav__list">
+                        <a href="#">한지업체</a>
+                        <a href="#">온라인스토어</a>
+                    </div>
+                </div>
+                <div class="nav__item">
+                    <a href="#">한지공예대전</a>
+                    <div class="nav__list">
+                        <a href="#">출품신청</a>
+                        <a href="#">참가작품</a>
+                    </div>
+                </div>
+                <div class="nav__item">
+                    <a href="#">축제공지사항</a>
+                    <div class="nav__list">
+                        <a href="#">알려드립니다</a>
+                        <a href="#">1:1문의</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- /사이드바 -->
+
+    <div class="visual visual--sub">
+        <div class="background background--black">
+            <img src="/images/visual/sub.jpg" alt="이미지" title="이미지">
+        </div>
+        <div class="position-center mt-4">
+            <div class="fx-2 text-gray">한지공예대전</div>
+            <div class="fx-7 text-white">출품신청</div>
+        </div>
+    </div>
+
+    <div class="workspace my-5">
+        <canvas width="1150" height="800"></canvas>
+        <div class="tool">
+            <div class="tool__item" data-role="select" title="선택"><i class="fa fa-mouse-pointer"></i></div>
+            <div class="tool__item" data-role="spin" title="회전"><i class="fa fa-repeat"></i></div>
+            <div class="tool__item" data-role="cut" title="자르기"><i class="fa fa-cut"></i></div>
+            <div class="tool__item" data-role="glue" title="붙이기"><i class="fa fa-object-ungroup"></i></div>
+            <div class="tool__item" data-target="#add-modal" data-toggle="modal" title="추가"><i class="fa fa-folder"></i></div>
+            <div id="btn-remove" class="tool__item" title="삭제"><i class="fa fa-trash"></i></div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-5">
+                <form>
+                    <div class="form-group">
+                        <label>제목</label>
+                        <input type="text" class="form-control" name="title">
+                    </div>
+                    <div class="form-group">
+                        <label>설명</label>
+                        <input type="text" class="form-control" name="description">
+                    </div>
+                    <div class="form-group">
+                        <label>해시태그</label>
+                        <div id="entry-tags" data-name="hash_tags"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-7">
+                <input type="radio" name="tab" hidden="hidden" id="tab-select" checked>
+                <input type="radio" name="tab" hidden="hidden" id="tab-spin">
+                <input type="radio" name="tab" hidden="hidden" id="tab-cut">
+                <input type="radio" name="tab" hidden="hidden" id="tab-glue">
+                <div class="helper">
+                    <div class="helper-search">
+                        <input type="text">
+                        <button id="btn-search" class="icon">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <button id="btn-prev" class="icon">
+                            <i class="fa fa-angle-left"></i>
+                        </button>
+                        <button id="btn-next" class="icon">
+                            <i class="fa fa-angle-right"></i>
+                        </button>
+                        <p class="helper-message"></p>
+                    </div>
+                    <div class="helper-header">
+                        <label for="tab-select" class="tab select">선택</label>
+                        <label for="tab-spin" class="tab spin">회전</label>
+                        <label for="tab-cut" class="tab cut">자르기</label>
+                        <label for="tab-glue" class="tab glue">붙이기</label>
+                    </div>
+                    <div class="helper-body">
+                        <div class="tab select" data-target="#tab-select">선택 도구는 가장 기본적인 도구로써, 작업 영역 내의 한지를 선택할 수 있게 합니다. 
+                            마우스 클릭으로 한지를 활성화하여 이동시킬 수 있으며, 선택된 한지는 삭제 버튼으로 삭제시킬 수 있습니다.</div>
+                        <div class="tab spin" data-target="#tab-spin">회전 도구는 작업 영역 내의 한지를 회전할 수 있는 도구입니다. 
+                            마우스 더블 클릭으로 회전하고자 하는 한지를 선택하면, 좌우로 마우스를 끌어당겨 회전시킬 수 있습니다. 
+                            회전한 뒤에는 우 클릭의 콘텍스트 메뉴로 '확인'을 눌러 한지의 회전 상태를 작업 영역에 반영할 수 있습니다.</div>
+                        <div class="tab cut" data-target="#tab-cut">자르기 도구는 작업 영역 내의 한지를 자를 수 있는 도구입니다. 
+                            마우스 더블 클릭으로 자르고자 하는 한지를 선택하면 마우스를 움직임으로써 자르고자 하는 궤적을 그릴 수 있습니다. 
+                            궤적을 그린 뒤에는 우 클릭의 콘텍스트 메뉴로 '자르기'를 눌러 그려진 궤적에 따라 한지를 자를 수 있습니다.</div>
+                        <div class="tab glue" data-target="#tab-glue">붙이기 도구는 작업 영역 내의 한지들을 붙일 수 있는 도구입니다.
+                            마우스 더블 클릭으로 붙이고자 하는 한지를 선택하면 처음 선택한 한지와 근접한 한지들을 선택할 수 있습니다. 
+                            붙일 한지를 모두 선택한 뒤에는 우 클릭의 콘텍스트 메뉴로 '붙이기'를 눌러 선택한 한지를 붙일 수 있습니다.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="add-modal" class="modal fade">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="fx-4">추가</div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="/js/entry/Tool.js"></script>
+    <script src="/js/entry/Select.js"></script>
+    <script src="/js/entry/Glue.js"></script>
+    <script src="/js/entry/Spin.js"></script>
+    <script src="/js/entry/Cut.js"></script>
+
+    <script src="/js/entry/Source.js"></script>
+    <script src="/js/entry/Part.js"></script>
+    <script src="/js/entry/Workspace.js"></script>
+    <script src="/js/entry.js"></script>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer__top py-4 border-top bg-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-6 mb-4 mb-lg-0">
+                        <a href="#" class="d-block text-dark">전주한지문화축제</a>
+                        <div class="mt-1">
+                            <a href="#" class="d-block fx-n2 text-muted">개요/연혁</a>
+                            <a href="#" class="d-block fx-n2 text-muted">찾아오시는길</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6 mb-4 mb-lg-0">
+                        <a href="#" class="d-block text-dark">한지상품판매관</a>
+                        <div class="mt-1">
+                            <a href="#" class="d-block fx-n2 text-muted">한지업체</a>
+                            <a href="#" class="d-block fx-n2 text-muted">온라인스토어</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <a href="#" class="d-block text-dark">한지공예대전</a>
+                        <div class="mt-1">
+                            <a href="#" class="d-block fx-n2 text-muted">출품신청</a>
+                            <a href="#" class="d-block fx-n2 text-muted">참가작품</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <a href="#" class="d-block text-dark">축제공지사항</a>
+                        <div class="mt-1">
+                            <a href="#" class="d-block fx-n2 text-muted">알려드립니다</a>
+                            <a href="#" class="d-block fx-n2 text-muted">1:1문의</a>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+        </div>
+        <div class="footer__bottom py-3 border-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-2">
+                        <div class="text-center">
+                            <img src="/images/logo.svg" alt="전주한지문화축제" title="전주한지문화축제" height="30">
+                        </div>
+                    </div>
+                    <div class="col-lg-8 order-1 order-lg-0">
+                        <div class="text-center fx-n2 text-muted">Copyright 2018 jhanji. All Right Reserved.</div>
+                    </div>
+                    <div class="col-lg-2 my-3 my-lg-0">
+                        <div class="d-center">
+                            <span class="icon text-muted"><i class="fa fa-facebook"></i></span>
+                            <span class="icon text-muted"><i class="fa fa-twitter"></i></span>
+                            <span class="icon text-muted"><i class="fa fa-google-plus"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /푸터 -->
+</body>
+</html>
